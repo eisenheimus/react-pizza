@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+
+import Header from './components/Header.jsx';
+import Home from './pages/Home.jsx';
+import NotFound from './pages/NotFound/index.jsx';
+
+import './scss/app.scss';
+// import pizzas from './assets/pizzas.json';
+// import { useEffect, useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="wrapper">
+			<Header />
+			<div className="content">
+				<div className="container">
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="*" element={<NotFound />} />
+					</Routes>
+				</div>
+			</div>
+		</div>
+	);
 }
 
 export default App;
